@@ -123,7 +123,7 @@ const Hero = () => {
     {
       icon: SiReact,
       color: '#61dafb',
-      className: 'top-[10%] left-[8%] xs:top-[12%] xs:left-[12%] sm:top-[8%] sm:left-[8%]',
+      className: 'top-[18%] left-[-4%] sm:left-[-6%]',
       delay: 0,
       bobDuration: 3,
       bobDelay: 0,
@@ -132,7 +132,7 @@ const Hero = () => {
     {
       icon: SiNodedotjs,
       color: '#339933',
-      className: 'top-[10%] right-[8%] xs:top-[12%] xs:right-[12%] sm:top-[8%] sm:right-[8%]',
+      className: 'top-[18%] right-[-4%] sm:right-[-6%]',
       delay: 0.1,
       bobDuration: 3.5,
       bobDelay: 0.5,
@@ -141,7 +141,7 @@ const Hero = () => {
     {
       icon: SiPython,
       color: '#3776ab',
-      className: 'bottom-[12%] left-[6%] xs:bottom-[15%] xs:left-[10%] sm:bottom-[12%] sm:left-[6%]',
+      className: 'bottom-[28%] left-[-4%] sm:left-[-6%]',
       delay: 0.2,
       bobDuration: 3.2,
       bobDelay: 0.2,
@@ -150,7 +150,7 @@ const Hero = () => {
     {
       icon: SiGit,
       color: '#f05032',
-      className: 'bottom-[12%] right-[6%] xs:bottom-[15%] xs:right-[10%] sm:bottom-[12%] sm:right-[6%]',
+      className: 'bottom-[28%] right-[-4%] sm:right-[-6%]',
       delay: 0.3,
       bobDuration: 3.4,
       bobDelay: 0.7,
@@ -159,7 +159,7 @@ const Hero = () => {
     {
       icon: SiMongodb,
       color: '#47a248',
-      className: 'top-[48%] right-[-5%] xs:right-[-2%] sm:right-[-5%]',
+      className: 'top-[-8%] left-[42%] sm:top-[-10%]',
       delay: 0.4,
       bobDuration: 3.6,
       bobDelay: 0.4,
@@ -174,10 +174,10 @@ const Hero = () => {
       className="min-h-screen flex flex-col justify-between bg-background px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:py-24 overflow-hidden border-b border-border/30"
     >
       <div className="max-w-7xl mx-auto w-full flex-grow flex flex-col justify-center gap-16">
-        
+
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center pt-8 md:pt-0">
-          
+
           {/* Left Column: Bio / Text content */}
           <div className="md:col-span-7 flex flex-col justify-center space-y-6 text-left order-2 md:order-1">
             <div className="space-y-3">
@@ -241,28 +241,19 @@ const Hero = () => {
 
           {/* Right Column: Redesigned Photo + Floating Badges */}
           <div className="md:col-span-5 flex flex-col items-center justify-center relative w-full order-1 md:order-2">
-            <div className="hero-visual-fade w-full relative max-w-sm aspect-square flex items-center justify-center">
-              
-              {/* Soft Gradient CSS glow blob behind the avatar */}
-              <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-tr from-accent/15 to-accent-light/10 blur-3xl rounded-full z-0 pointer-events-none"></div>
+            
+            {/* Soft Gradient CSS glow blob behind the avatar */}
+            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-tr from-accent/15 to-accent-light/10 blur-3xl rounded-full z-0 pointer-events-none"></div>
 
-              {/* Central Photo Placeholder with shimmer skeletal reflection */}
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full border-4 border-white bg-background/60 backdrop-blur-md shadow-xl flex items-center justify-center overflow-hidden z-10 transition-transform duration-300 hover:scale-[1.03] select-none pointer-events-none">
-                <div className="relative w-full h-full bg-gradient-to-b from-surface-alt to-border/40 flex items-center justify-center">
-                  <svg
-                    className="w-24 h-24 text-muted/60"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  {/* Subtle decorative inner dash border */}
-                  <div className="absolute inset-2.5 rounded-full border border-dashed border-accent/20 animate-[spin_60s_linear_infinite]"></div>
-                  
-                  {/* Shimmer overlay effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2.5s_infinite] pointer-events-none"></div>
-                </div>
-              </div>
+            {/* Unified relative container for the cutout profile and badges */}
+            <div className="hero-visual-fade relative w-64 h-[350px] sm:w-[300px] sm:h-[420px] flex items-end justify-center z-10 overflow-visible">
+              
+              {/* Profile image cutout with NO border */}
+              <img
+                src="/fahim.png"
+                alt={personalInfo.name}
+                className="max-h-full object-contain filter drop-shadow-[0_12px_24px_rgba(79,70,229,0.12)] select-none pointer-events-none"
+              />
 
               {/* Floating tech badge chips */}
               {techBadges.map((badge, idx) => {
@@ -318,9 +309,8 @@ const Hero = () => {
               return (
                 <div
                   key={idx}
-                  className={`flex flex-col items-center justify-center px-4 ${
-                    idx >= 2 ? 'pt-6 md:pt-0' : 'pt-0'
-                  } ${idx % 2 === 1 ? 'border-t-0' : ''}`}
+                  className={`flex flex-col items-center justify-center px-4 ${idx >= 2 ? 'pt-6 md:pt-0' : 'pt-0'
+                    } ${idx % 2 === 1 ? 'border-t-0' : ''}`}
                 >
                   <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight flex items-baseline">
                     <CountUp to={num} decimals={dec} />
