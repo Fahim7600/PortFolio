@@ -14,7 +14,6 @@ export type {
   SkillCategoryGroup,
   ThesisStat,
   EducationInfo,
-  Experience,
   Project,
 } from '@/data/portfolio-data';
 
@@ -28,7 +27,6 @@ export type SectionId =
   | 'about'
   | 'skills'
   | 'education'
-  | 'experience'
   | 'projects'
   | 'contact';
 

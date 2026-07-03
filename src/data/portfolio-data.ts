@@ -92,7 +92,6 @@ export const navItems: NavItem[] = [
   { id: 'about', label: 'About', href: '#about' },
   { id: 'skills', label: 'Skills', href: '#skills' },
   { id: 'education', label: 'Education', href: '#education' },
-  { id: 'experience', label: 'Experience', href: '#experience' },
   { id: 'projects', label: 'Projects', href: '#projects' },
   { id: 'contact', label: 'Contact', href: '#contact' },
 ];
@@ -193,99 +192,71 @@ export const educationInfo: EducationInfo = {
 };
 
 // -----------------------------------------------------------
-// Experience
-// -----------------------------------------------------------
-export interface Experience {
-  id: string;
-  company: string;
-  position: string;
-  startDate: string;
-  endDate: string; // or "Present"
-  location: string;
-  description: string;
-  highlights: string[];
-  technologies: string[];
-  logoUrl?: string;
-}
-
-export const experience: Experience[] = [
-  {
-    id: 'exp-1',
-    company: 'PLACEHOLDER Company',
-    position: 'PLACEHOLDER Position',
-    startDate: '2023-06',
-    endDate: 'Present',
-    location: 'PLACEHOLDER City',
-    description:
-      'PLACEHOLDER — Describe your role and key contributions in 1-2 sentences.',
-    highlights: [
-      'PLACEHOLDER_HIGHLIGHT_1',
-      'PLACEHOLDER_HIGHLIGHT_2',
-      'PLACEHOLDER_HIGHLIGHT_3',
-    ],
-    technologies: ['React', 'TypeScript', 'Node.js'],
-  },
-];
-
-// -----------------------------------------------------------
 // Projects
 // -----------------------------------------------------------
 export interface Project {
-  id: string; // also used as the route slug: /project/:id
-  title: string;
-  shortDescription: string; // for the card on the home page
-  longDescription: string; // for the detail page
-  thumbnailUrl: string;
-  images: string[];
-  technologies: string[];
-  liveUrl?: string;
-  repoUrl?: string;
-  featured: boolean;
-  category: string;
+  id: string;
+  name: string;
+  shortDescription: string;
+  fullDescription: string;
+  techStack: string[];
+  keyFeatures: string[];
+  liveLink: string | null;
+  githubLink: string;
+  challenges: string;
+  futureImprovements: string;
 }
 
 export const projects: Project[] = [
   {
-    id: 'project-1',
-    title: 'PLACEHOLDER Project One',
-    shortDescription:
-      'PLACEHOLDER — A one-liner describing the project for the card.',
-    longDescription:
-      'PLACEHOLDER — A detailed description for the project detail page. Include the problem, approach, and outcome.',
-    thumbnailUrl: '/assets/projects/project-1-thumb.jpg',
-    images: [
-      '/assets/projects/project-1-1.jpg',
-      '/assets/projects/project-1-2.jpg',
+    id: 'migrateright',
+    name: 'MigrateRight — Safe Migration & Overseas Worker Support Network',
+    shortDescription: 'A MERN platform tackling fraudulent recruitment agencies, wage theft, and lack of emergency support for migrant workers — agency verification, geospatial search, and transparent fee tracking.',
+    fullDescription: 'MigrateRight is a full-stack MERN application built to make overseas labor migration safer and more transparent. It lets workers verify recruitment agencies, search agencies geospatially, track fees and reviews transparently, and reduces exposure to fraudulent recruiters and wage exploitation.',
+    techStack: ['React', 'React Router', 'Axios', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Cloudinary'],
+    keyFeatures: [
+      'Verified agency database with ratings and reviews to flag fraudulent recruiters',
+      'Geospatial search to find nearby verified agencies',
+      'Role-based access control for workers, agencies, and admins on shared API routes',
+      'Transparent fee and document tracking with Cloudinary-backed uploads',
     ],
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    liveUrl: 'https://placeholder.com',
-    repoUrl: 'https://github.com/placeholder/project-1',
-    featured: true,
-    category: 'Web App',
+    liveLink: null,
+    githubLink: 'https://github.com/rahim2025/MigrateRight---Safe-Migration-and-Overseas-Worker-Support-Network',
+    challenges: 'Implementing secure role-based JWT authentication across worker, agency, and admin roles was one of the trickiest parts — each role needed different permissions on the same API routes. Geospatial search for nearby verified agencies also required careful MongoDB indexing to keep queries fast, and handling Cloudinary image uploads reliably (agency documents, profile photos) added another layer of error handling to get right.',
+    futureImprovements: 'Planned improvements include a real-time SOS/emergency alert system for workers abroad, multilingual support (Bengali, Hindi, Arabic) since the target users span multiple regions, and an escrow-style payment tracking feature to add another layer of financial transparency.',
   },
   {
-    id: 'project-2',
-    title: 'PLACEHOLDER Project Two',
-    shortDescription: 'PLACEHOLDER — Another project card description.',
-    longDescription: 'PLACEHOLDER — Detailed description for project two.',
-    thumbnailUrl: '/assets/projects/project-2-thumb.jpg',
-    images: ['/assets/projects/project-2-1.jpg'],
-    technologies: ['Python', 'FastAPI', 'PostgreSQL'],
-    liveUrl: 'https://placeholder.com',
-    repoUrl: 'https://github.com/placeholder/project-2',
-    featured: true,
-    category: 'Backend',
+    id: 'petsphere',
+    name: 'PetSphere',
+    shortDescription: 'An all-in-one pet adoption, care, and lost-and-found platform with real-time chat and notifications.',
+    fullDescription: 'PetSphere simplifies pet adoption and care coordination — adopters can register, discover pets with filtered search, view detailed pet profiles, submit adoption applications, chat in real time with shelters/owners, and get notified on application status updates.',
+    techStack: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB'],
+    keyFeatures: [
+      'Real-time chat between adopters and shelters/owners',
+      'Smart filtered pet search by species, breed, age, and location',
+      'Instant notifications on adoption application status updates',
+      'Lost-and-found reporting system for missing pets',
+    ],
+    liveLink: null,
+    githubLink: 'https://github.com/2ManyFaces/PetSphere_CSE471_Section06_Group07',
+    challenges: 'Building the real-time chat and notification system was the biggest technical challenge — keeping message delivery and notification state in sync across users without constant polling required careful socket-based architecture. Designing a flexible pet-filtering system (species, breed, age, location) that stayed fast as listings grew was another key problem to solve on the MongoDB side.',
+    futureImprovements: 'Future plans include AI-assisted adopter-pet matching based on lifestyle and preferences, a video-call feature for virtual meet-and-greets before adoption, and a geolocation map view for the lost-and-found feature so nearby sightings are easier to spot.',
   },
   {
-    id: 'project-3',
-    title: 'PLACEHOLDER Project Three',
-    shortDescription: 'PLACEHOLDER — Third project card description.',
-    longDescription: 'PLACEHOLDER — Detailed description for project three.',
-    thumbnailUrl: '/assets/projects/project-3-thumb.jpg',
-    images: ['/assets/projects/project-3-1.jpg'],
-    technologies: ['Three.js', 'WebGL', 'GLSL'],
-    repoUrl: 'https://github.com/placeholder/project-3',
-    featured: false,
-    category: '3D / Creative',
+    id: 'cineplex',
+    name: 'Cineplex Project',
+    shortDescription: 'A cinema ticketing and management website built as a relational database systems project.',
+    fullDescription: 'Cineplex is a Flask and MySQL-based web application for browsing movies, showtimes, and booking cinema seats — built as a database systems course project with a strong focus on relational schema design and query correctness.',
+    techStack: ['Python', 'Flask', 'MySQL', 'HTML', 'CSS'],
+    keyFeatures: [
+      'Movie and showtime browsing with interactive seat selection',
+      'Relational schema design that prevents double-booking conflicts',
+      'Admin-side tools for managing movies and showtimes',
+      'SQL-driven reporting for occupancy and booking data',
+    ],
+    liveLink: null,
+    githubLink: 'https://github.com/Hr-D-LuffY/Cineplex-Project',
+    challenges: 'Designing a normalized relational schema that correctly modeled movies, showtimes, seats, and bookings — while preventing double-booking race conditions on popular showtimes — was the core challenge. Writing efficient SQL joins for seat availability checks and reporting queries also took real iteration to get right without a full ORM layer to lean on.',
+    futureImprovements: 'Would like to add payment gateway integration, rebuild the frontend in React with a proper REST API layer instead of server-rendered Flask templates, and add an admin analytics dashboard for occupancy and revenue trends.',
   },
 ];
