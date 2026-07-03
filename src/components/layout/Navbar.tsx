@@ -70,25 +70,27 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-5xl z-50 transition-all duration-300 border backdrop-blur-md px-6 ${
+        isOpen ? 'rounded-2xl' : 'rounded-full'
+      } ${
         isScrolled
-          ? 'bg-surface/80 backdrop-blur-md shadow-sm border-b border-border/50 py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-[#733E24]/90 border-[#733E24]/30 shadow-lg py-2.5'
+          : 'bg-[#733E24]/75 border-white/20 shadow-sm py-3.5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full">
         <div className="flex items-center justify-between">
           {/* Logo / Brand Name */}
           <a
             href={isHomePage ? '#hero' : '/#hero'}
             onClick={(e) => handleNavClick(e, 'hero')}
-            className="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+            className="group flex flex-col focus:outline-none rounded"
             aria-label="Arfan Ahmed Fahim Portfolio Home"
           >
-            <span className="text-xl font-extrabold tracking-tight text-foreground group-hover:text-accent transition-colors duration-200">
+            <span className="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-amber-200 transition-colors duration-200">
               Arfan Ahmed Fahim
             </span>
-            <span className="text-[10px] uppercase tracking-wider text-muted font-semibold group-hover:text-accent-light transition-colors duration-200">
+            <span className="text-[9px] uppercase tracking-wider text-orange-200/80 font-semibold group-hover:text-white transition-colors duration-200">
               Developer Portfolio
             </span>
           </a>
@@ -102,10 +104,10 @@ const Navbar = () => {
                   key={item.id}
                   href={isHomePage ? item.href : `/${item.href}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  className={`px-3 py-2 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none ${
                     isActive
-                      ? 'text-accent bg-accent-light/50'
-                      : 'text-muted hover:text-foreground hover:bg-surface-alt'
+                      ? 'text-white bg-white/20'
+                      : 'text-orange-100 hover:text-white hover:bg-white/10'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -117,7 +119,7 @@ const Navbar = () => {
             {/* Resume Button */}
             <a
               href="#resume"
-              className="ml-4 flex items-center gap-2 px-4 py-2 border border-accent text-accent font-medium text-sm rounded-lg hover:bg-accent hover:text-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="ml-4 flex items-center gap-2 px-4 py-2 border border-white/30 text-white font-medium text-sm rounded-full hover:bg-white hover:text-[#733E24] hover:border-white bg-white/5 transition-all duration-200 focus:outline-none"
               aria-label="Download Resume"
             >
               <FiFileText className="text-base" />
@@ -130,7 +132,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-lg text-muted hover:text-foreground hover:bg-surface-alt focus:outline-none focus:ring-2 focus:ring-accent"
+              className="inline-flex items-center justify-center p-2 rounded-full text-orange-100 hover:text-white hover:bg-white/10 focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               aria-label="Toggle main menu"
@@ -150,9 +152,9 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden border-t border-border bg-surface shadow-lg overflow-hidden"
+            className="md:hidden mt-2 bg-[#733E24]/95 border-t border-white/10 rounded-2xl overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1">
+            <div className="px-2 pt-2 pb-6 space-y-1">
               {navItems.map((item) => {
                 const isActive = isHomePage && activeSection === item.id;
                 return (
@@ -162,8 +164,8 @@ const Navbar = () => {
                     onClick={(e) => handleNavClick(e, item.id)}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                       isActive
-                        ? 'text-accent bg-accent-light/50 font-semibold'
-                        : 'text-muted hover:text-foreground hover:bg-surface-alt'
+                        ? 'text-white bg-white/20 font-semibold'
+                        : 'text-orange-100 hover:text-white hover:bg-white/10'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -172,10 +174,10 @@ const Navbar = () => {
                 );
               })}
 
-              <div className="pt-4 border-t border-border/60">
+              <div className="pt-4 border-t border-white/10">
                 <a
                   href="#resume"
-                  className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-accent hover:bg-accent-hover text-white text-center font-medium rounded-lg transition-colors duration-200 shadow-sm"
+                  className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-white/15 hover:bg-white text-white hover:text-[#733E24] text-center font-medium rounded-xl transition-colors duration-200 shadow-sm"
                   aria-label="Download Resume"
                   onClick={() => setIsOpen(false)}
                 >

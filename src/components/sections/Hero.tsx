@@ -171,7 +171,7 @@ const Hero = () => {
     <section
       id="hero"
       ref={containerRef}
-      className="min-h-screen flex flex-col justify-between bg-background px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:py-24 overflow-hidden border-b border-border/30"
+      className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-[#733E24] via-[#5C301B] to-[#3B1D0E] px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:py-24 overflow-hidden border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto w-full flex-grow flex flex-col justify-center gap-16">
 
@@ -181,18 +181,18 @@ const Hero = () => {
           {/* Left Column: Bio / Text content */}
           <div className="md:col-span-7 flex flex-col justify-center space-y-6 text-left order-2 md:order-1">
             <div className="space-y-3">
-              <span className="hero-fade-in inline-block text-accent font-semibold tracking-wider uppercase text-sm md:text-base">
+              <span className="hero-fade-in inline-block text-amber-300 font-semibold tracking-wider uppercase text-sm md:text-base">
                 Welcome! 👋
               </span>
-              <h1 className="hero-fade-in text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-none">
+              <h1 className="hero-fade-in text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
                 {personalInfo.name}
               </h1>
-              <div className="hero-fade-in inline-block text-2xl sm:text-3xl font-bold bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">
+              <div className="hero-fade-in inline-block text-2xl sm:text-3xl font-bold bg-gradient-to-r from-amber-300 via-orange-200 to-yellow-100 bg-clip-text text-transparent">
                 {personalInfo.title}
               </div>
             </div>
 
-            <p className="hero-fade-in text-muted text-lg leading-relaxed max-w-2xl">
+            <p className="hero-fade-in text-orange-100/90 text-lg leading-relaxed max-w-2xl">
               {personalInfo.tagline}
             </p>
 
@@ -201,7 +201,7 @@ const Hero = () => {
               <a
                 href={personalInfo.resumeUrl}
                 download
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl shadow-md shadow-accent/25 hover:shadow-lg transition-all duration-200"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-xl shadow-md shadow-black/20 transition-all duration-200"
                 aria-label="Download Resume PDF"
               >
                 <FiDownload className="text-lg" />
@@ -210,7 +210,7 @@ const Hero = () => {
               <a
                 href="#contact"
                 onClick={handleContactClick}
-                className="flex items-center justify-center gap-2 px-6 py-3 border border-border hover:border-accent text-foreground font-semibold rounded-xl bg-surface hover:bg-surface-alt transition-all duration-200"
+                className="flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white font-semibold rounded-xl bg-white/5 hover:bg-white/15 transition-all duration-200"
               >
                 <span>Contact Me</span>
                 <FiArrowRight className="text-lg" />
@@ -219,7 +219,7 @@ const Hero = () => {
 
             {/* Social Links */}
             <div className="hero-fade-in flex items-center gap-4 pt-4">
-              <span className="text-sm font-semibold tracking-wide text-muted uppercase">
+              <span className="text-sm font-semibold tracking-wide text-orange-200/80 uppercase">
                 Connect:
               </span>
               <div className="flex items-center gap-3">
@@ -229,7 +229,7 @@ const Hero = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-xl bg-surface border border-border/80 text-muted hover:text-accent hover:border-accent hover:shadow-sm transition-all duration-200 transform hover:-translate-y-0.5"
+                    className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 border border-white/20 text-white/90 hover:text-white hover:bg-white/20 hover:border-white/40 hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
                     aria-label={`Visit my ${social.label}`}
                   >
                     {getSocialIcon(social.icon)}
@@ -243,7 +243,7 @@ const Hero = () => {
           <div className="md:col-span-5 flex flex-col items-center justify-center relative w-full order-1 md:order-2">
             
             {/* Soft Gradient CSS glow blob behind the avatar */}
-            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-tr from-accent/15 to-accent-light/10 blur-3xl rounded-full z-0 pointer-events-none"></div>
+            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-gradient-to-tr from-amber-500/20 to-orange-400/10 blur-3xl rounded-full z-0 pointer-events-none"></div>
 
             {/* Unified relative container for the cutout profile and badges */}
             <div className="hero-visual-fade relative w-64 h-[350px] sm:w-[300px] sm:h-[420px] flex items-end justify-center z-10 overflow-visible">
@@ -252,7 +252,7 @@ const Hero = () => {
               <img
                 src="/fahim.png"
                 alt={personalInfo.name}
-                className="max-h-full object-contain filter drop-shadow-[0_12px_24px_rgba(79,70,229,0.12)] select-none pointer-events-none"
+                className="max-h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)] select-none pointer-events-none"
               />
 
               {/* Floating tech badge chips */}
@@ -302,8 +302,8 @@ const Hero = () => {
         </div>
 
         {/* Stat Counter Row */}
-        <div className="hero-fade-in w-full bg-surface border border-border/40 rounded-3xl p-6 sm:p-8 shadow-xs relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y divide-border/20 md:divide-y-0 md:divide-x divide-solid">
+        <div className="hero-fade-in w-full bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y divide-white/15 md:divide-y-0 md:divide-x divide-white/15 divide-solid">
             {heroStats.map((stat, idx) => {
               const { num, dec } = parseStatValue(stat.value);
               return (
@@ -312,15 +312,15 @@ const Hero = () => {
                   className={`flex flex-col items-center justify-center px-4 ${idx >= 2 ? 'pt-6 md:pt-0' : 'pt-0'
                     } ${idx % 2 === 1 ? 'border-t-0' : ''}`}
                 >
-                  <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight flex items-baseline">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-baseline">
                     <CountUp to={num} decimals={dec} />
                     {stat.suffix && (
-                      <span className="text-accent text-lg font-bold ml-0.5">
+                      <span className="text-amber-400 text-lg font-bold ml-0.5">
                         {stat.suffix}
                       </span>
                     )}
                   </div>
-                  <span className="text-xs font-bold text-muted uppercase tracking-wider mt-1.5 text-center">
+                  <span className="text-xs font-bold text-orange-200/80 uppercase tracking-wider mt-1.5 text-center">
                     {stat.label}
                   </span>
                 </div>
