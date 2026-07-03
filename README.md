@@ -23,7 +23,7 @@ A modern, high-performance developer portfolio built with React, TypeScript, and
 
 ### Backend
 - **Node.js** & **Express** — REST API endpoints
-- **Nodemailer** — Gmail SMTP client mapping for secure contact form submissions
+- **Resend SDK** — Email API client for secure contact form mail delivery
 - **Express Rate Limit** — Basic API rate-limiting against spam submissions
 
 ---
@@ -48,9 +48,8 @@ PORT=5000
 # Allowed client origin URL (CORS setting)
 FRONTEND_URL=http://localhost:5173
 
-# Gmail SMTP Configuration for Nodemailer
-GMAIL_USER=your_email@gmail.com
-GMAIL_APP_PASSWORD=your_gmail_app_password
+# Resend API Key Setup
+RESEND_API_KEY=your_resend_api_key
 ```
 
 ### 2. Install and Run Locally

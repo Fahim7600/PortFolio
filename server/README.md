@@ -1,11 +1,11 @@
 # Portfolio Email Server Backend
 
-A lightweight Express + TypeScript microservice to securely process developer portfolio contact forms and send emails using Gmail App Passwords and Nodemailer.
+A lightweight Express + TypeScript microservice to securely process developer portfolio contact forms and send emails using the Resend API.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- A Google Account (to configure Gmail App Passwords)
+- A [Resend](https://resend.com/) Account (to get a mail API key)
 
 ## Setup Instructions
 
@@ -22,16 +22,13 @@ A lightweight Express + TypeScript microservice to securely process developer po
    ```
    Open the `.env` file and configure the settings.
 
-3. **Get a Gmail App Password**
-   To send emails using Gmail, you cannot use your regular account password due to security blocks. Instead:
-   - Go to your [Google Account Console](https://myaccount.google.com/).
-   - Go to **Security** on the left menu.
-   - Under *How you sign in to Google*, ensure **2-Step Verification** is turned **ON**.
-   - Search for **App passwords** or go directly to the App passwords setting.
-   - Enter a name (e.g. `Developer Portfolio Website`) and click **Create**.
-   - Copy the generated 16-character password (e.g., `abcd efgh ijkl mnop`).
-   - Paste this 16-character string (without spaces) as `GMAIL_APP_PASSWORD` in your `.env` file.
-   - Set `GMAIL_USER` to your Gmail address.
+3. **Get a Resend API Key**
+   To send emails over HTTPS without SMTP port restrictions:
+   - Create a free account at [Resend](https://resend.com/).
+   - Navigate to the **API Keys** tab in the sidebar.
+   - Click **Create API Key**, give it a name (e.g. `Portfolio Contact`), select the *Sending access* role, and click **Add**.
+   - Copy the generated API key (e.g., `re_abc123...`).
+   - Paste it as `RESEND_API_KEY` in your `.env` file.
 
 ## Run Server Locally
 
@@ -44,5 +41,5 @@ A lightweight Express + TypeScript microservice to securely process developer po
 - **Production Build**:
   ```bash
   npm run build
-  npm run start
+  npm start
   ```
