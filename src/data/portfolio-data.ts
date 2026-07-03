@@ -33,6 +33,21 @@ export const personalInfo: PersonalInfo = {
 };
 
 // -----------------------------------------------------------
+// About Me Info
+// -----------------------------------------------------------
+export interface AboutInfo {
+  journeyIntro: string;
+  whatILoveBuilding: string;
+  beyondTheCode: string;
+}
+
+export const aboutInfo: AboutInfo = {
+  journeyIntro: 'My fascination with programming began early in my undergraduate journey, sparked by something simple: watching websites work. I was captivated by how a page could load in a split second, quietly solving a real human problem — how it stored user data, retrieved it instantly, and made complex information feel effortless to access. That invisible engine behind a smooth user experience is what first pulled me toward web development, and I knew I wanted to master it. My interest in AI traces back even further, to a childhood love of mathematics. Watching that math translate into systems that could recognize patterns and make sense of the unknown felt like a natural extension of that early curiosity. This crystallized during my CSE421 (Artificial Intelligence) course, where I saw firsthand how elegant math could power genuinely intelligent behavior. That fascination carried directly into my thesis, where I work on computer vision for industrial defect detection.',
+  whatILoveBuilding: 'If you ask me where my heart truly lies in development, it\'s backend. There\'s something deeply satisfying about designing the logic that nobody sees but everything depends on — the APIs that respond correctly under pressure, the database schemas that hold up as data grows, the systems that quietly make sure everything upstream just works. That same instinct is what draws me to machine learning and AI. I love building models from the ground up — not just using pretrained tools, but actually understanding what\'s happening under the hood, training and tuning them, and watching them learn to recognize patterns that aren\'t obvious to the human eye. I\'ve also started exploring AI agents, which feels like a natural next step: systems that don\'t just respond, but reason and act. My undergraduate thesis, where I built a multi-task computer vision model for industrial defect detection, gave me a real taste of research-driven engineering. Between backend systems and AI/ML, I\'ve found the intersection where structured logic meets intelligent behavior — and that\'s where I want to keep growing.',
+  beyondTheCode: 'When I\'m away from the keyboard, cricket takes over — I\'ve followed the sport for as long as I can remember, playing whenever I get the chance and keeping track of series, stats, and storylines across the cricketing world. The other thing that genuinely fascinates me is stadium architecture — how these massive structures are engineered not just to hold thousands of people, but to create an atmosphere. I find myself reading about stadiums around the world, admiring how design and engineering come together to build something both functional and awe-inspiring — the stadiums built for the 2026 FIFA World Cup are a great recent example. It\'s a curiosity that mirrors what draws me to engineering itself: taking something complex and making it work beautifully.',
+};
+
+// -----------------------------------------------------------
 // Social Links
 // -----------------------------------------------------------
 export interface SocialLink {
@@ -85,64 +100,62 @@ export const navItems: NavItem[] = [
 // -----------------------------------------------------------
 // Skills
 // -----------------------------------------------------------
-export interface Skill {
-  id: string;
+export interface SkillItem {
   name: string;
-  icon: string; // react-icons icon name
-  category: SkillCategory;
-  proficiency: number; // 0-100
+  icon: string; // React icon name
 }
 
-export type SkillCategory =
-  | 'frontend'
-  | 'backend'
-  | 'database'
-  | 'devops'
-  | 'tools'
-  | 'languages';
+export interface SkillCategoryGroup {
+  category: string;
+  skills: SkillItem[];
+}
 
-export const skills: Skill[] = [
+export const skills: SkillCategoryGroup[] = [
   {
-    id: 'skill-react',
-    name: 'React',
-    icon: 'SiReact',
-    category: 'frontend',
-    proficiency: 90,
+    category: 'Languages',
+    skills: [
+      { name: 'Python', icon: 'SiPython' },
+      { name: 'C', icon: 'SiC' },
+      { name: 'JavaScript', icon: 'SiJavascript' },
+    ],
   },
   {
-    id: 'skill-typescript',
-    name: 'TypeScript',
-    icon: 'SiTypescript',
-    category: 'languages',
-    proficiency: 85,
+    category: 'Frontend',
+    skills: [
+      { name: 'HTML5', icon: 'SiHtml5' },
+      { name: 'CSS3', icon: 'SiCss' },
+      { name: 'React', icon: 'SiReact' },
+    ],
   },
   {
-    id: 'skill-node',
-    name: 'Node.js',
-    icon: 'SiNodedotjs',
-    category: 'backend',
-    proficiency: 80,
+    category: 'Backend',
+    skills: [
+      { name: 'Node.js', icon: 'SiNodedotjs' },
+      { name: 'Express', icon: 'SiExpress' },
+      { name: 'Prisma', icon: 'SiPrisma' },
+    ],
   },
   {
-    id: 'skill-python',
-    name: 'Python',
-    icon: 'SiPython',
-    category: 'languages',
-    proficiency: 75,
+    category: 'Database',
+    skills: [
+      { name: 'MongoDB', icon: 'SiMongodb' },
+      { name: 'PostgreSQL', icon: 'SiPostgresql' },
+      { name: 'SQL', icon: 'FaDatabase' },
+    ],
   },
   {
-    id: 'skill-docker',
-    name: 'Docker',
-    icon: 'SiDocker',
-    category: 'devops',
-    proficiency: 70,
+    category: 'Architecture & Concepts',
+    skills: [
+      { name: 'OOP', icon: 'FiCpu' },
+      { name: 'MVC Design Pattern', icon: 'FiLayers' },
+      { name: 'Modular Design Pattern', icon: 'FiBox' },
+    ],
   },
   {
-    id: 'skill-git',
-    name: 'Git',
-    icon: 'SiGit',
-    category: 'tools',
-    proficiency: 85,
+    category: 'Tools',
+    skills: [
+      { name: 'Git', icon: 'SiGit' },
+    ],
   },
 ];
 

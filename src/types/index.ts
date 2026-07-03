@@ -7,10 +7,11 @@
 
 export type {
   PersonalInfo,
+  AboutInfo,
   SocialLink,
   NavItem,
-  Skill,
-  SkillCategory,
+  SkillItem,
+  SkillCategoryGroup,
   Education,
   Experience,
   Project,
