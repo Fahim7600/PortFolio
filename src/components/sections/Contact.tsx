@@ -13,6 +13,7 @@ import {
   FiAlertCircle,
 } from 'react-icons/fi';
 import { personalInfo, socialLinks } from '@/data/portfolio-data';
+import { IconChip } from '../ui';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -153,11 +154,11 @@ const Contact = () => {
   const getSocialIcon = (iconName: string) => {
     switch (iconName) {
       case 'FaGithub':
-        return <FiGithub className="text-lg" />;
+        return <FiGithub className="text-xl" />;
       case 'FaLinkedin':
-        return <FiLinkedin className="text-lg" />;
+        return <FiLinkedin className="text-xl" />;
       default:
-        return <FiMail className="text-lg" />;
+        return <FiMail className="text-xl" />;
     }
   };
 
@@ -165,10 +166,10 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-background py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-border/30"
+      className="min-h-screen flex items-center justify-center bg-[#0a0e17] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-white/5"
     >
       {/* Decorative Organic Floating Blob (Visual rhyme with earlier sections) */}
-      <div className="absolute right-0 bottom-1/4 w-80 h-80 pointer-events-none opacity-30 mix-blend-multiply filter blur-2xl z-0">
+      <div className="absolute right-0 bottom-1/4 w-80 h-80 pointer-events-none opacity-20 filter blur-3xl z-0">
         <motion.div
           animate={{
             scale: [1, 1.15, 0.9, 1],
@@ -185,7 +186,7 @@ const Contact = () => {
             ease: 'easeInOut',
             repeat: Infinity,
           }}
-          className="w-full h-full bg-gradient-to-tr from-accent/20 to-accent-light/35"
+          className="w-full h-full bg-gradient-to-tr from-cyan-600/10 to-purple-600/20"
         />
       </div>
 
@@ -193,10 +194,10 @@ const Contact = () => {
         
         {/* Section Heading */}
         <div className="space-y-2 mb-12 text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Get In Touch
           </h2>
-          <div className="w-16 h-1 bg-accent rounded-full"></div>
+          <div className="w-16 h-1 bg-purple-500 rounded-full shadow-[0_0_8px_#a855f7]"></div>
         </div>
 
         {/* Layout grid */}
@@ -207,10 +208,10 @@ const Contact = () => {
           {/* Left Column: Invitations & Contact Information */}
           <div className="lg:col-span-5 space-y-8 text-left">
             <div className="contact-fade-in space-y-4">
-              <h3 className="text-2xl font-bold text-foreground tracking-tight">
+              <h3 className="text-2xl font-bold text-white tracking-tight">
                 Let&apos;s build something together!
               </h3>
-              <p className="text-muted text-base leading-relaxed">
+              <p className="text-slate-300 text-base leading-relaxed">
                 Whether you have an interesting job opening, want to discuss software engineering, machine learning models, or just want to connect, feel free to drop a message. I will do my best to reply as soon as possible.
               </p>
             </div>
@@ -219,15 +220,15 @@ const Contact = () => {
             <div className="contact-fade-in space-y-4">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-4 p-4 bg-surface border border-border/40 hover:border-accent/40 rounded-2xl hover:shadow-xs transition-all duration-200 group"
+                className="flex items-center gap-4 p-4 bg-[#131826]/75 border border-white/10 hover:border-purple-500/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] rounded-2xl transition-all duration-300 group"
                 aria-label="Send Email"
               >
-                <div className="p-3 bg-accent-light/50 text-accent group-hover:bg-accent group-hover:text-white rounded-xl transition-all duration-200">
+                <div className="p-3 bg-purple-500/10 text-purple-400 border border-purple-500/20 group-hover:bg-purple-600 group-hover:text-white rounded-xl transition-all duration-300">
                   <FiMail className="text-xl" />
                 </div>
                 <div>
-                  <span className="block text-xs font-bold text-muted uppercase tracking-wider">Email Me</span>
-                  <span className="text-foreground text-sm font-semibold group-hover:text-accent transition-colors">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Email Me</span>
+                  <span className="text-[#E6E9F0] text-sm font-semibold group-hover:text-white transition-colors">
                     {personalInfo.email}
                   </span>
                 </div>
@@ -235,27 +236,27 @@ const Contact = () => {
 
               <a
                 href={`tel:${personalInfo.phone}`}
-                className="flex items-center gap-4 p-4 bg-surface border border-border/40 hover:border-accent/40 rounded-2xl hover:shadow-xs transition-all duration-200 group"
+                className="flex items-center gap-4 p-4 bg-[#131826]/75 border border-white/10 hover:border-cyan-500/80 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] rounded-2xl transition-all duration-300 group"
                 aria-label="Call Phone"
               >
-                <div className="p-3 bg-accent-light/50 text-accent group-hover:bg-accent group-hover:text-white rounded-xl transition-all duration-200">
+                <div className="p-3 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500 group-hover:text-white rounded-xl transition-all duration-300">
                   <FiPhone className="text-xl" />
                 </div>
                 <div>
-                  <span className="block text-xs font-bold text-muted uppercase tracking-wider">Call Me</span>
-                  <span className="text-foreground text-sm font-semibold group-hover:text-accent transition-colors">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Call Me</span>
+                  <span className="text-[#E6E9F0] text-sm font-semibold group-hover:text-white transition-colors">
                     {personalInfo.phone}
                   </span>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 bg-surface border border-border/40 rounded-2xl shadow-xxs">
-                <div className="p-3 bg-accent-light/50 text-accent rounded-xl">
+              <div className="flex items-center gap-4 p-4 bg-[#131826]/75 border border-white/10 rounded-2xl shadow-md">
+                <div className="p-3 bg-pink-500/10 text-pink-400 border border-pink-500/20 rounded-xl">
                   <FiMapPin className="text-xl" />
                 </div>
                 <div>
-                  <span className="block text-xs font-bold text-muted uppercase tracking-wider">Location</span>
-                  <span className="text-foreground text-sm font-semibold">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Location</span>
+                  <span className="text-[#E6E9F0] text-sm font-semibold">
                     {personalInfo.location}
                   </span>
                 </div>
@@ -264,20 +265,25 @@ const Contact = () => {
 
             {/* Socials Connection Row */}
             <div className="contact-fade-in flex items-center gap-4 pt-2">
-              <span className="text-sm font-semibold tracking-wide text-muted uppercase">Connect:</span>
+              <span className="text-sm font-semibold tracking-wide text-slate-400 uppercase">Connect:</span>
               <div className="flex items-center gap-3">
                 {socialLinks
                   .filter((social) => social.id !== 'email')
-                  .map((social) => (
+                  .map((social, idx) => (
                     <a
                       key={social.id}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-10 h-10 rounded-xl bg-surface border border-border/80 text-muted hover:text-accent hover:border-accent hover:shadow-sm transition-all duration-200 transform hover:-translate-y-0.5"
+                      className="focus:outline-none"
                       aria-label={`Visit my ${social.label}`}
                     >
-                      {getSocialIcon(social.icon)}
+                      <IconChip
+                        size="md"
+                        accentColor={idx % 2 === 0 ? 'cyan' : 'magenta'}
+                      >
+                        {getSocialIcon(social.icon)}
+                      </IconChip>
                     </a>
                   ))}
               </div>
@@ -285,14 +291,14 @@ const Contact = () => {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="contact-fade-in lg:col-span-7 bg-surface border border-border/40 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm">
+          <div className="contact-fade-in lg:col-span-7 bg-[#131826]/75 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl">
             <form onSubmit={handleSubmit} className="space-y-5" noValidate>
               
               {/* Row for Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {/* Name */}
                 <div className="space-y-1 text-left">
-                  <label htmlFor="name" className="text-xs font-bold text-muted uppercase tracking-wider">
+                  <label htmlFor="name" className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                     Name
                   </label>
                   <input
@@ -301,18 +307,18 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl bg-surface-alt border focus:outline-none focus:ring-2 focus:ring-accent/50 text-foreground transition-all ${
-                      errors.name ? 'border-red-500' : 'border-border/60 hover:border-border'
+                    className={`w-full px-4 py-3 rounded-xl bg-[#1b2234] border focus:outline-none focus:ring-1 focus:ring-purple-500/40 focus:border-purple-500 text-white placeholder-slate-500 transition-all duration-300 ${
+                      errors.name ? 'border-red-500/80 focus:ring-red-500/30' : 'border-white/10 hover:border-white/20'
                     }`}
                     placeholder="John Doe"
                     disabled={isSubmitting}
                   />
-                  {errors.name && <p className="text-red-500 text-xs font-semibold mt-1">{errors.name}</p>}
+                  {errors.name && <p className="text-red-400 text-xs font-semibold mt-1">{errors.name}</p>}
                 </div>
 
                 {/* Email */}
                 <div className="space-y-1 text-left">
-                  <label htmlFor="email" className="text-xs font-bold text-muted uppercase tracking-wider">
+                  <label htmlFor="email" className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                     Email Address
                   </label>
                   <input
@@ -321,19 +327,19 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl bg-surface-alt border focus:outline-none focus:ring-2 focus:ring-accent/50 text-foreground transition-all ${
-                      errors.email ? 'border-red-500' : 'border-border/60 hover:border-border'
+                    className={`w-full px-4 py-3 rounded-xl bg-[#1b2234] border focus:outline-none focus:ring-1 focus:ring-purple-500/40 focus:border-purple-500 text-white placeholder-slate-500 transition-all duration-300 ${
+                      errors.email ? 'border-red-500/80 focus:ring-red-500/30' : 'border-white/10 hover:border-white/20'
                     }`}
                     placeholder="john@example.com"
                     disabled={isSubmitting}
                   />
-                  {errors.email && <p className="text-red-500 text-xs font-semibold mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-red-400 text-xs font-semibold mt-1">{errors.email}</p>}
                 </div>
               </div>
 
               {/* Subject */}
               <div className="space-y-1 text-left">
-                <label htmlFor="subject" className="text-xs font-bold text-muted uppercase tracking-wider">
+                <label htmlFor="subject" className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                   Subject
                 </label>
                 <input
@@ -342,18 +348,18 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 rounded-xl bg-surface-alt border focus:outline-none focus:ring-2 focus:ring-accent/50 text-foreground transition-all ${
-                    errors.subject ? 'border-red-500' : 'border-border/60 hover:border-border'
+                  className={`w-full px-4 py-3 rounded-xl bg-[#1b2234] border focus:outline-none focus:ring-1 focus:ring-purple-500/40 focus:border-purple-500 text-white placeholder-slate-500 transition-all duration-300 ${
+                    errors.subject ? 'border-red-500/80 focus:ring-red-500/30' : 'border-white/10 hover:border-white/20'
                   }`}
                   placeholder="Collaboration opening"
                   disabled={isSubmitting}
                 />
-                {errors.subject && <p className="text-red-500 text-xs font-semibold mt-1">{errors.subject}</p>}
+                {errors.subject && <p className="text-red-400 text-xs font-semibold mt-1">{errors.subject}</p>}
               </div>
 
               {/* Message */}
               <div className="space-y-1 text-left">
-                <label htmlFor="message" className="text-xs font-bold text-muted uppercase tracking-wider">
+                <label htmlFor="message" className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                   Message
                 </label>
                 <textarea
@@ -362,13 +368,13 @@ const Contact = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 rounded-xl bg-surface-alt border focus:outline-none focus:ring-2 focus:ring-accent/50 text-foreground transition-all resize-none ${
-                    errors.message ? 'border-red-500' : 'border-border/60 hover:border-border'
+                  className={`w-full px-4 py-3 rounded-xl bg-[#1b2234] border focus:outline-none focus:ring-1 focus:ring-purple-500/40 focus:border-purple-500 text-white placeholder-slate-500 transition-all duration-300 resize-none ${
+                    errors.message ? 'border-red-500/80 focus:ring-red-500/30' : 'border-white/10 hover:border-white/20'
                   }`}
                   placeholder="Hey, let's talk about..."
                   disabled={isSubmitting}
                 />
-                {errors.message && <p className="text-red-500 text-xs font-semibold mt-1">{errors.message}</p>}
+                {errors.message && <p className="text-red-400 text-xs font-semibold mt-1">{errors.message}</p>}
               </div>
 
               {/* Submit Feedback Banners */}
@@ -380,14 +386,14 @@ const Contact = () => {
                     exit={{ opacity: 0, y: -10 }}
                     className={`flex items-start gap-2.5 p-4 rounded-xl border text-sm text-left ${
                       submitStatus === 'success'
-                        ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                        : 'bg-red-50 border-red-200 text-red-800'
+                        ? 'bg-emerald-950/30 border-emerald-500/20 text-emerald-400'
+                        : 'bg-red-950/30 border-red-500/20 text-red-400'
                     }`}
                   >
                     {submitStatus === 'success' ? (
-                      <FiCheckCircle className="text-emerald-600 text-base mt-0.5 flex-shrink-0" />
+                      <FiCheckCircle className="text-emerald-500 text-base mt-0.5 flex-shrink-0" />
                     ) : (
-                      <FiAlertCircle className="text-red-600 text-base mt-0.5 flex-shrink-0" />
+                      <FiAlertCircle className="text-red-400 text-base mt-0.5 flex-shrink-0" />
                     )}
                     <span className="font-semibold leading-relaxed">{statusMessage}</span>
                   </motion.div>
@@ -398,7 +404,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group flex items-center justify-center gap-2 w-full py-3.5 bg-accent hover:bg-accent-hover disabled:bg-accent/70 text-white font-semibold rounded-xl transition-all duration-200 shadow-md shadow-accent/25 hover:shadow-lg disabled:cursor-not-allowed"
+                className="group flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:from-purple-600/70 disabled:to-indigo-600/70 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/25 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] border border-purple-500/20 disabled:cursor-not-allowed cursor-pointer"
               >
                 {isSubmitting ? (
                   <>

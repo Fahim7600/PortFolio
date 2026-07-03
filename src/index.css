@@ -2,35 +2,43 @@
 
 /*
  * ============================================================
- * Custom Theme — Light professional palette with Indigo accent
+ * Custom Theme — Deep Dark Theme + Neon Accent System
  * ============================================================
  *
- * Background:    #f8fafc (Slate 50 - clean off-white)
- * Surface:       #ffffff (Pure white for cards/modals/navbar)
- * Surface-alt:   #f1f5f9 (Slate 100 - section alternates)
- * Border:        #e2e8f0 (Slate 200 - subtle borders)
- * Foreground:    #0f172a (Slate 900 - dark neutral text)
- * Muted:         #475569 (Slate 600 - secondary text)
- * Accent:        #4f46e5 (Indigo 600 - primary interactive brand color)
- * Accent-hover:  #4338ca (Indigo 700 - hover states)
- * Accent-light:  #e0e7ff (Indigo 100 - subtle highlights/backgrounds)
+ * Background:    #0a0e17 (Very deep near-black navy/slate)
+ * Surface:       #131826 (Slightly lighter dark shade for cards/panels)
+ * Surface-alt:   #171d2e (Elevated dark shade for sub-panels/sections)
+ * Border:        rgba(255,255,255,0.08) (Subtle, low-opacity light border)
+ * Foreground:    #e6e9f0 (Off-white/light gray primary text)
+ * Muted:         #8b92a8 (Dimmer gray-blue secondary/muted text)
+ *
+ * Neon Accents:
+ * - Neon Violet:  #a855f7 (Primary brand color)
+ * - Neon Cyan:    #06b6d4
+ * - Neon Magenta: #ec4899
  */
 
 @theme {
-  --color-background: #f8fafc;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-foreground: #0f172a;
-  --color-muted: #475569;
-  --color-accent: #4f46e5;
-  --color-accent-hover: #4338ca;
-  --color-accent-light: #e0e7ff;
+  --color-background: #0a0e17;
+  --color-surface: #131826;
+  --color-surface-alt: #171d2e;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-foreground: #e6e9f0;
+  --color-muted: #8b92a8;
+  
+  --color-accent: #a855f7;
+  --color-accent-hover: #c084fc;
+  --color-accent-light: rgba(168, 85, 247, 0.15);
+
+  --color-neon-violet: #a855f7;
+  --color-neon-cyan: #06b6d4;
+  --color-neon-magenta: #ec4899;
 }
 
 /* Base resets & utilities */
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-background);
 }
 
 body {
@@ -41,7 +49,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scroll margin offset for elements to account for fixed navbar height (16 = 4rem / 64px, we add some breathing room with scroll-mt-20) */
+/* Scroll margin offset for elements to account for fixed navbar height */
 section {
   scroll-margin-top: 5rem;
 }
@@ -56,16 +64,24 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #1e293b;
   border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted);
+  background: var(--color-accent);
 }
 
 /* Selection styling */
 ::selection {
-  background-color: var(--color-accent-light);
-  color: var(--color-accent);
+  background-color: rgba(168, 85, 247, 0.3);
+  color: #ffffff;
 }
+
+/* Accessibility: Keyboard focus outlines */
+*:focus-visible {
+  outline: 2px solid var(--color-neon-violet) !important;
+  outline-offset: 4px !important;
+}
+
