@@ -90,7 +90,7 @@ arfanahmedfahim832@gmail.com
     `;
 
     // Trigger both sends concurrently using the Resend API client
-    await Promise.all([
+    const [ownerMailResult, autoReplyMailResult] = await Promise.all([
       resend.emails.send({
         from: 'Portfolio Contact Form <onboarding@resend.dev>',
         to: 'arfanahmedfahim832@gmail.com',
@@ -107,6 +107,19 @@ arfanahmedfahim832@gmail.com
         html: autoReplyMailHtml,
       }),
     ]);
+
+    // Check if either result has a non-null error field
+    if (ownerMailResult.error || autoReplyMailResult.error) {
+      if (ownerMailResult.error) {
+        console.error('Resend API ERROR - Owner Notification Email Failed:', ownerMailResult.error);
+      }
+      if (autoReplyMailResult.error) {
+        console.error('Resend API ERROR - Auto-Reply Confirmation Email Failed:', autoReplyMailResult.error);
+      }
+      return res.status(502).json({
+        error: 'Failed to deliver emails. The Resend mail delivery was rejected or timed out. Please try again or email directly.',
+      });
+    }
 
     return res.status(200).json({ message: 'Message sent successfully!' });
   } catch (error) {
