@@ -1,36 +1,34 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /*
  * ============================================================
- * Custom Theme — Dark professional palette with violet accent
+ * Custom Theme — Light professional palette with Indigo accent
  * ============================================================
  *
- * Background:    #0a0a0f (near-black with a blue tint)
- * Surface:       #12121a (cards, modals)
- * Surface-alt:   #1a1a2e (elevated surfaces)
- * Border:        #2a2a3e (subtle borders)
- * Foreground:    #e4e4ef (primary text)
- * Muted:         #8888a0 (secondary text)
- * Accent:        #7c3aed (vivid violet)
- * Accent-hover:  #6d28d9 (darker violet)
- * Accent-light:  #a78bfa (lighter violet for highlights)
- *
- * These are consumed via Tailwind v4 @theme — no tailwind.config needed.
+ * Background:    #f8fafc (Slate 50 - clean off-white)
+ * Surface:       #ffffff (Pure white for cards/modals/navbar)
+ * Surface-alt:   #f1f5f9 (Slate 100 - section alternates)
+ * Border:        #e2e8f0 (Slate 200 - subtle borders)
+ * Foreground:    #0f172a (Slate 900 - dark neutral text)
+ * Muted:         #475569 (Slate 600 - secondary text)
+ * Accent:        #4f46e5 (Indigo 600 - primary interactive brand color)
+ * Accent-hover:  #4338ca (Indigo 700 - hover states)
+ * Accent-light:  #e0e7ff (Indigo 100 - subtle highlights/backgrounds)
  */
 
 @theme {
-  --color-background: #0a0a0f;
-  --color-surface: #12121a;
-  --color-surface-alt: #1a1a2e;
-  --color-border: #2a2a3e;
-  --color-foreground: #e4e4ef;
-  --color-muted: #8888a0;
-  --color-accent: #7c3aed;
-  --color-accent-hover: #6d28d9;
-  --color-accent-light: #a78bfa;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-foreground: #0f172a;
+  --color-muted: #475569;
+  --color-accent: #4f46e5;
+  --color-accent-hover: #4338ca;
+  --color-accent-light: #e0e7ff;
 }
 
-/* Base resets */
+/* Base resets & utilities */
 *,
 *::before,
 *::after {
@@ -51,6 +49,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scroll margin offset for elements to account for fixed navbar height (16 = 4rem / 64px, we add some breathing room with scroll-mt-20) */
+section {
+  scroll-margin-top: 5rem;
+}
+
 /* Scrollbar styling (webkit) */
 ::-webkit-scrollbar {
   width: 8px;
@@ -61,7 +64,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
@@ -71,6 +74,6 @@ body {
 
 /* Selection styling */
 ::selection {
-  background-color: var(--color-accent);
-  color: white;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
