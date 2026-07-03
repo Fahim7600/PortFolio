@@ -21,14 +21,14 @@ export interface PersonalInfo {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: 'PLACEHOLDER_NAME',
-  title: 'PLACEHOLDER_TITLE', // e.g. "Full-Stack Developer"
-  tagline: 'PLACEHOLDER_TAGLINE', // e.g. "Building elegant solutions..."
-  email: 'placeholder@email.com',
-  phone: '+1-000-000-0000',
-  location: 'PLACEHOLDER_CITY, PLACEHOLDER_COUNTRY',
-  bio: 'PLACEHOLDER_BIO — Write 2-3 sentences about yourself.',
-  resumeUrl: '/assets/resume.pdf',
+  name: 'Arfan Ahmed Fahim',
+  title: 'Full Stack Developer',
+  tagline: 'A Computer Science graduate and Full Stack Developer dedicated to building responsive MERN applications and exploring the intersections of AI, machine learning, and computer vision.',
+  email: 'arfanahmedfahim832@gmail.com',
+  phone: '01330044020',
+  location: 'Aftabnagar, Dhaka, Bangladesh',
+  bio: 'Recent Computer Science graduate specializing in building robust, interactive web applications with the MERN stack. Actively exploring integrations of AI, machine learning models, and computer vision algorithms into modern software platforms.',
+  resumeUrl: '/resume.pdf',
   avatarUrl: '/assets/avatar.jpg',
 };
 
@@ -46,20 +46,20 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'github',
     label: 'GitHub',
-    url: 'https://github.com/PLACEHOLDER',
+    url: 'https://github.com/Fahim7600',
     icon: 'FaGithub',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    url: 'https://linkedin.com/in/PLACEHOLDER',
+    url: 'https://www.linkedin.com/in/arfan-ahmed-fahim',
     icon: 'FaLinkedin',
   },
   {
-    id: 'twitter',
-    label: 'Twitter',
-    url: 'https://twitter.com/PLACEHOLDER',
-    icon: 'FaTwitter',
+    id: 'email',
+    label: 'Email',
+    url: 'mailto:arfanahmedfahim832@gmail.com',
+    icon: 'FiMail',
   },
 ];
 
