@@ -12,7 +12,8 @@ export type {
   NavItem,
   SkillItem,
   SkillCategoryGroup,
-  Education,
+  ThesisStat,
+  EducationInfo,
   Experience,
   Project,
 } from '@/data/portfolio-data';

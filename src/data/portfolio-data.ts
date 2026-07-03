@@ -162,31 +162,35 @@ export const skills: SkillCategoryGroup[] = [
 // -----------------------------------------------------------
 // Education
 // -----------------------------------------------------------
-export interface Education {
-  id: string;
-  institution: string;
-  degree: string;
-  field: string;
-  startDate: string; // "YYYY-MM" or "YYYY"
-  endDate: string; // "YYYY-MM", "YYYY", or "Present"
-  gpa?: string;
-  description?: string;
-  logoUrl?: string;
+export interface ThesisStat {
+  label: string;
+  value: string;
 }
 
-export const education: Education[] = [
-  {
-    id: 'edu-1',
-    institution: 'PLACEHOLDER University',
-    degree: 'Bachelor of Science',
-    field: 'Computer Science',
-    startDate: '2020',
-    endDate: '2024',
-    gpa: '3.8/4.0',
-    description:
-      'PLACEHOLDER — Briefly describe relevant coursework, honors, or activities.',
-  },
-];
+export interface EducationInfo {
+  institution: string;
+  degree: string;
+  graduationYear: string;
+  cgpa: string;
+  thesisTitle: string;
+  thesisAbstract: string;
+  thesisHighlights: ThesisStat[];
+}
+
+export const educationInfo: EducationInfo = {
+  institution: 'BRAC University',
+  degree: 'B.Sc. in Computer Science and Engineering',
+  graduationYear: '2026',
+  cgpa: '3.72 / 4.00',
+  thesisTitle: 'Computer Vision Based Deep Learning Approaches for Automated Visual Inspection and Defect Detection in Industrial Environments',
+  thesisAbstract: 'Industrial defect inspection on modern production lines must simultaneously determine whether a product is defective, what type of defect is present, and which product is being inspected. Single-task classifiers solve only one of these problems and cannot share visual computation across the three decisions. This work proposes EdgeNetV4, a multi-task convolutional architecture that produces all three outputs in a single forward pass. A unified multi-domain dataset is constructed by merging MVTec AD, Casting Product, and Magnetic Tile under a common eight-class defect taxonomy and a seventeen-class product taxonomy. EdgeNetV4 employs an EfficientNet-B2 backbone with identity-initialised Coordinate Attention modules, a shared semantic neck for the binary and product heads, and a multi-scale defect head that concatenates pooled features from three backbone scales into a single descriptor before classification. The training protocol combines masked focal loss with per-class inverse-frequency weighting, homoscedastic uncertainty balancing, and cosine annealing with warm restarts under exponential moving average of weights. On the held-out validation set, EdgeNetV4 attains a defect-type macro F1 of 0.966, binary accuracy of 99.3%, and product accuracy of 100.0%, surpassing the strongest single-task baseline by a clear margin. On the held-out test set, the model achieves defect-type macro F1 of 0.957 and binary AUC-ROC of 0.996, confirming that validation performance generalises to unseen data. Controlled ablations isolate the contribution of each component, with the multi-scale defect head and the loss reweighting strategy identified as the two largest contributors to the overall gain. Per-dataset evaluation confirms stable cross-domain behaviour across all three source domains. The model fits within a practical parameter budget and supports deployment on edge hardware.',
+  thesisHighlights: [
+    { label: 'Defect-Type Macro F1', value: '0.966' },
+    { label: 'Binary Accuracy', value: '99.3%' },
+    { label: 'Product Accuracy', value: '100.0%' },
+    { label: 'Binary AUC-ROC', value: '0.996' },
+  ],
+};
 
 // -----------------------------------------------------------
 // Experience
