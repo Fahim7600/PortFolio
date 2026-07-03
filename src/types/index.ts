@@ -15,6 +15,7 @@ export type {
   ThesisStat,
   EducationInfo,
   Project,
+  HeroStat,
 } from '@/data/portfolio-data';
 
 // -----------------------------------------------------------

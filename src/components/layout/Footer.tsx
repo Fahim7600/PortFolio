@@ -94,7 +94,7 @@ const Footer = () => {
               Arfan Ahmed Fahim
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              CS Graduate & Full Stack Developer building clean user experiences and intelligent pipelines.
+              CSE Graduate & Full Stack Developer building clean user experiences and intelligent pipelines.
             </p>
             {/* Social Connection Row */}
             <div className="flex items-center gap-3 pt-2">
