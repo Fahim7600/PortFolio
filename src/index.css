@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+/*
+ * ============================================================
+ * Custom Theme — Dark professional palette with violet accent
+ * ============================================================
+ *
+ * Background:    #0a0a0f (near-black with a blue tint)
+ * Surface:       #12121a (cards, modals)
+ * Surface-alt:   #1a1a2e (elevated surfaces)
+ * Border:        #2a2a3e (subtle borders)
+ * Foreground:    #e4e4ef (primary text)
+ * Muted:         #8888a0 (secondary text)
+ * Accent:        #7c3aed (vivid violet)
+ * Accent-hover:  #6d28d9 (darker violet)
+ * Accent-light:  #a78bfa (lighter violet for highlights)
+ *
+ * These are consumed via Tailwind v4 @theme — no tailwind.config needed.
+ */
+
+@theme {
+  --color-background: #0a0a0f;
+  --color-surface: #12121a;
+  --color-surface-alt: #1a1a2e;
+  --color-border: #2a2a3e;
+  --color-foreground: #e4e4ef;
+  --color-muted: #8888a0;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-light: #a78bfa;
+}
+
+/* Base resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling (webkit) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
