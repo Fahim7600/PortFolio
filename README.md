@@ -5,7 +5,7 @@ A modern, high-performance developer portfolio built with React, TypeScript, and
 ---
 
 ## 🔗 Live Demo
-- **Live Link**: [https://arfanahmedfahim.vercel.app/](https://arfanahmedfahim.vercel.app/) *(Placeholder for production deployment URL)*
+- **Live Link**: [https://arfan-ahmed-fahim832-portfolio.vercel.app/](https://arfan-ahmed-fahim832-portfolio.vercel.app/)
 
 ---
 
