@@ -89,7 +89,7 @@ export interface HeroStat {
 
 export const heroStats: HeroStat[] = [
   { label: 'CGPA', value: '3.72', suffix: '/4.00' },
-  { label: 'Thesis Published', value: '1', suffix: '' },
+  { label: 'Thesis Completed', value: '1', suffix: '' },
   { label: 'Projects Built', value: '3', suffix: '+' },
   { label: 'Years Coding', value: '3', suffix: '+' },
 ];
